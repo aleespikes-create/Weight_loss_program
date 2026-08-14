@@ -6,10 +6,18 @@
 <title>It's Your Turn — Medical Weight Loss at SANO Med Spa | Fairview Heights, IL</title>
 <meta name="description" content="30 days of GLP-1, a complimentary body sculpting treatment, monthly 3D body scans and professional medical support — $149. Book your free consultation at SANO Med Spa in Fairview Heights, IL.">
 
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-N453HG77');</script>
+<!-- End Google Tag Manager -->
+
 <!-- ============================================================
-     TRACKING PIXELS
-     Paste your Meta Pixel and Google Analytics / GTM snippets
-     here, just above the closing head tag.
+     META PIXEL — paste the clinic's Meta base code here.
+     CTA clicks already push a `book_cta_click` event to the
+     dataLayer, so the Meta tag can be fired from GTM instead.
      ============================================================ -->
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -346,19 +354,28 @@ section{padding:78px 0}
 /* BOOKING */
 .book{background:var(--cream-lift);padding:74px 0}
 .book-grid{display:grid;grid-template-columns:1.35fr .65fr;gap:32px;align-items:start}
-.cal-shell{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:14px;box-shadow:0 18px 50px rgba(46,48,40,.10)}
-#calendar-embed{
-  min-height:660px;border-radius:10px;
-  background:repeating-linear-gradient(135deg,var(--cream-lift) 0 14px,var(--cream) 14px 28px);
-  border:2px dashed var(--sage);
-  display:flex;align-items:center;justify-content:center;text-align:center;padding:40px 24px;
+.cal-shell{position:relative;background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:14px;box-shadow:0 18px 50px rgba(46,48,40,.10)}
+.cal-shell iframe{
+  width:100%;min-height:680px;border:none;display:block;border-radius:10px;
+  overflow:hidden;background:var(--cream-lift);
 }
-#calendar-embed .cal-note{max-width:400px}
-#calendar-embed .cal-note b{
-  display:block;font-size:14px;font-weight:800;letter-spacing:2.2px;
-  text-transform:uppercase;color:var(--sage-deep);margin-bottom:10px;
+.cal-loading{
+  position:absolute;inset:14px;display:flex;align-items:center;justify-content:center;
+  border-radius:10px;background:var(--cream-lift);pointer-events:none;
+  font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  color:var(--muted);opacity:1;transition:opacity .35s ease;
 }
-#calendar-embed .cal-note span{font-size:14.5px;color:var(--ink-soft);line-height:1.7}
+.cal-shell.ready .cal-loading{opacity:0}
+.cal-alt{
+  text-align:center;font-size:13.5px;color:var(--muted);
+  padding:13px 10px 3px;line-height:1.6;
+}
+.cal-alt a{color:var(--sage-deep);font-weight:800;text-decoration:none}
+.cal-alt a:hover{text-decoration:underline}
+.cal-loading b{
+  display:block;font-size:13px;font-weight:800;letter-spacing:2px;
+  text-transform:uppercase;color:var(--muted);
+}
 .book-side{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:30px 28px}
 .book-side h4{font-size:12.5px;letter-spacing:2px;text-transform:uppercase;color:var(--sage-deep);margin-bottom:16px}
 .book-side ul{list-style:none;margin-bottom:24px}
@@ -492,13 +509,18 @@ footer .logo small{color:rgba(255,255,255,.42)}
   .stack-total .st-r{text-align:left}
   .stack-total .st-r .big{font-size:54px}
   .sticky-bar{display:flex}
-  #calendar-embed{min-height:480px}
+  .cal-shell iframe{min-height:560px}
   .sec-head{margin-bottom:32px}
   .pull{font-size:21px}
 }
 </style>
 </head>
 <body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N453HG77"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 <!-- ==========================================================
      NAV
@@ -1037,36 +1059,27 @@ footer .logo small{color:rgba(255,255,255,.42)}
     <div class="book-grid">
 
       <!-- ==================================================
-           CALENDAR EMBED GOES HERE
-           ==================================================
-           CALENDLY:
-             <div class="calendly-inline-widget"
-                  data-url="https://calendly.com/YOUR-USERNAME/consultation"
-                  style="min-width:100%;height:680px;"></div>
-             <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
-
-           GOHIGHLEVEL:
-             <iframe src="https://api.leadconnectorhq.com/widget/booking/YOUR-ID"
-                     style="width:100%;height:680px;border:none;"></iframe>
-             <script src="https://link.msgsndr.com/js/form_embed.js"></script>
-
-           CAL.COM:
-             <iframe src="https://cal.com/YOUR-USERNAME/consult?embed=true"
-                     style="width:100%;height:680px;border:none;"></iframe>
-
-           Delete the placeholder <div id="calendar-embed"> below and paste
-           your embed code in its place.
+           LIVE CALENDAR  —  GoHighLevel booking widget
+           Calendar ID: XUpgAJaixvKu4l0KhOej
+           To swap in a different calendar later, replace the
+           src URL and the iframe id with the new booking ID.
+           The resize script is loaded at the bottom of <body>.
            ================================================== -->
       <div class="cal-shell">
-        <div id="calendar-embed">
-          <div class="cal-note">
-            <b>Calendar embed</b>
-            <span>
-              Paste your Calendly / GoHighLevel / Cal.com embed code here.
-              Full instructions are in the HTML comment directly above this block.
-            </span>
-          </div>
-        </div>
+        <div class="cal-loading">Loading available times&hellip;</div>
+        <iframe
+          src="https://api.leadconnectorhq.com/widget/booking/XUpgAJaixvKu4l0KhOej"
+          id="XUpgAJaixvKu4l0KhOej_1786728756112"
+          style="width:100%;min-height:680px;border:none;overflow:hidden;display:block;border-radius:10px;"
+          title="Book your free consultation at SANO Med Spa"
+          allow="payment"
+          scrolling="no"></iframe>
+        <p class="cal-alt">
+          Calendar not loading?
+          <a href="https://api.leadconnectorhq.com/widget/booking/XUpgAJaixvKu4l0KhOej"
+             target="_blank" rel="noopener">Open it in a new tab &rarr;</a>
+          or call <a href="tel:+16186610001">(618) 661-0001</a>
+        </p>
       </div>
 
       <aside class="book-side">
@@ -1180,16 +1193,91 @@ document.querySelectorAll('.faq-q').forEach(function(q){
   },{passive:true});
 })();
 
-/* ---------- CTA click tracking hooks ----------
-   Uncomment and wire to your pixel:
-   fbq('track','Lead');  |  gtag('event','book_cta_click');
-------------------------------------------------- */
+/* ---------- CTA tracking -> GTM dataLayer ----------
+   Every "#book" button pushes:  event: 'book_cta_click'
+   with cta_text and cta_section, so you can trigger per
+   button in GTM and see which section actually converts.
+--------------------------------------------------- */
+window.dataLayer = window.dataLayer || [];
+
 document.querySelectorAll('a[href="#book"]').forEach(function(btn){
   btn.addEventListener('click',function(){
-    // if (typeof fbq === 'function') fbq('track','InitiateCheckout');
-    // if (typeof gtag === 'function') gtag('event','book_cta_click');
+    var sec = btn.closest('section, header, nav, .sticky-bar');
+    window.dataLayer.push({
+      event:'book_cta_click',
+      cta_text: (btn.textContent||'').replace(/\s+/g,' ').trim().slice(0,60),
+      cta_section: (sec && (sec.id || sec.className.split(' ')[0])) || 'unknown'
+    });
   });
 });
+</script>
+
+<!-- GoHighLevel booking widget — auto-resizes the calendar iframe -->
+<script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript"></script>
+<script>
+/* ------------------------------------------------------------
+   BOOKING -> THANK-YOU REDIRECT (fallback)
+
+   Set the redirect inside GHL first:
+     Calendars > your calendar > Confirmation / Forms & Payment
+     > "Redirect to a custom page" -> https://YOUR-DOMAIN/thank-you.html
+
+   GHL normally redirects the top window itself. This listener is
+   a safety net for the case where it redirects inside the iframe
+   or only posts a message. Update THANKYOU_URL if you rename the
+   file or host it on a different path.
+------------------------------------------------------------- */
+(function(){
+  var THANKYOU_URL = 'thank-you.html';
+  var fired = false;
+
+  window.addEventListener('message', function(e){
+    if(!e.origin || !/leadconnectorhq|msgsndr|gohighlevel/i.test(e.origin)) return;
+    var raw = typeof e.data === 'string' ? e.data : JSON.stringify(e.data || '');
+    if(fired) return;
+    if(/appointment.*(booked|created|success)|booking.*(success|complete)/i.test(raw)){
+      fired = true;
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({event:'appointment_booked', booking_source:'ghl_calendar'});
+      setTimeout(function(){ window.location.href = THANKYOU_URL; }, 300);
+    }
+  }, false);
+})();
+</script>
+<script>
+/* Calendar loading state.
+   GHL posts a resize message once the widget paints. If we never
+   hear from it (blocked iframe, offline, opened via file://), we
+   surface a clickable fallback instead of leaving a blank box. */
+(function(){
+  var shell=document.querySelector('.cal-shell');
+  var f=document.getElementById('XUpgAJaixvKu4l0KhOej_1786728756112');
+  var load=document.querySelector('.cal-loading');
+  if(!shell||!f||!load) return;
+  var ok=false;
+  var ready=function(){ ok=true; shell.classList.add('ready'); };
+
+  window.addEventListener('message',function(e){
+    if(e.origin && /leadconnectorhq|msgsndr/i.test(e.origin)) ready();
+  },false);
+  f.addEventListener('load',function(){ setTimeout(ready,1200); });
+
+  setTimeout(function(){
+    if(ok) return;
+    load.innerHTML = '<b>Calendar didn\'t load</b>'
+      + '<span style="display:block;font-size:14px;letter-spacing:0;text-transform:none;'
+      + 'font-weight:400;color:var(--ink-soft);margin-top:8px;line-height:1.6">'
+      + '<a href="https://api.leadconnectorhq.com/widget/booking/XUpgAJaixvKu4l0KhOej" '
+      + 'target="_blank" rel="noopener" style="color:var(--sage-deep);font-weight:800;'
+      + 'text-decoration:underline">Open the booking calendar &rarr;</a><br>'
+      + 'or call <a href="tel:+16186610001" style="color:var(--sage-deep);font-weight:800;'
+      + 'text-decoration:underline">(618) 661-0001</a></span>';
+    load.style.pointerEvents='auto';
+    load.style.flexDirection='column';
+    load.style.textAlign='center';
+    load.style.padding='30px';
+  }, 8000);
+})();
 </script>
 
 </body>
